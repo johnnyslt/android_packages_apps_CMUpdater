@@ -118,16 +118,6 @@ public class DownloadService extends IntentService
         return body;
     }
 
-    private UpdateInfo parseJSON(String json) {
-        try {
-            JSONObject obj = new JSONObject(json);
-            return jsonToInfo(obj);
-        } catch (JSONException e) {
-            Log.e(TAG, "JSONException", e);
-            return null;
-        }
-    }
-
     private UpdateInfo jsonToInfo(JSONObject obj) {
         try {
             if (obj == null || obj.has("errors")) {
@@ -149,14 +139,14 @@ public class DownloadService extends IntentService
         }
     }
 
-    private long enqueueDownload(String downloadUrl, String fullFilePath) {
+    private long enqueueDownload(String downloadUrl, String localFilePath) {
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(downloadUrl));
         String userAgent = Utils.getUserAgentString(this);
         if (userAgent != null) {
             request.addRequestHeader("User-Agent", userAgent);
         }
         request.setTitle(getString(R.string.app_name));
-        request.setDestinationUri(Uri.parse(fullFilePath));
+        request.setDestinationUri(Uri.parse(localFilePath));
         request.setAllowedOverRoaming(false);
         request.setVisibleInDownloadsUi(false);
 
@@ -167,29 +157,22 @@ public class DownloadService extends IntentService
         return dm.enqueue(request);
     }
 
-    private void downloadIncremental(String originalName) {
-        Log.v(TAG, "Downloading incremental zip: " + mInfo.getDownloadUrl());
-        // If directory doesn't exist, create it
-        File directory = Utils.makeUpdateFolder();
-        if (!directory.exists()) {
-            directory.mkdirs();
-            Log.d(TAG, "UpdateFolder created");
-        }
-
+    private void downloadIncremental(UpdateInfo incrementalUpdateInfo) {
+        Log.v(TAG, "Downloading incremental zip: " + incrementalUpdateInfo.getDownloadUrl());
         // Build the name of the file to download, adding .partial at the end.  It will get
         // stripped off when the download completes
         String sourceIncremental = Utils.getIncremental();
         String targetIncremental = mInfo.getIncremental();
         String fileName = "incremental-" + sourceIncremental + "-" + targetIncremental + ".zip";
-        String fullFilePath = "file://" + directory.getAbsolutePath() + "/" + fileName + ".partial";
+        String incrementalFilePath = "file://" + getUpdateDirectory().getAbsolutePath() + "/" + fileName + ".partial";
 
-        long downloadId = enqueueDownload(mInfo.getDownloadUrl(), fullFilePath);
+        long downloadId = enqueueDownload(incrementalUpdateInfo.getDownloadUrl(), incrementalFilePath);
 
         // Store in shared preferences
         mPrefs.edit()
                 .putLong(Constants.DOWNLOAD_ID, downloadId)
-                .putString(Constants.DOWNLOAD_MD5, mInfo.getMD5Sum())
-                .putString(Constants.DOWNLOAD_INCREMENTAL_FOR, originalName)
+                .putString(Constants.DOWNLOAD_MD5, incrementalUpdateInfo.getMD5Sum())
+                .putString(Constants.DOWNLOAD_INCREMENTAL_FOR, mInfo.getFileName())
                 .apply();
 
         Utils.cancelNotification(this);
@@ -202,16 +185,9 @@ public class DownloadService extends IntentService
     private void downloadFullZip() {
         Log.v(TAG, "Downloading full zip");
 
-        // If directory doesn't exist, create it
-        File directory = Utils.makeUpdateFolder();
-        if (!directory.exists()) {
-            directory.mkdirs();
-            Log.d(TAG, "UpdateFolder created");
-        }
-
         // Build the name of the file to download, adding .partial at the end.  It will get
         // stripped off when the download completes
-        String fullFilePath = "file://" + directory.getAbsolutePath() +
+        String fullFilePath = "file://" + getUpdateDirectory().getAbsolutePath() +
                 "/" + mInfo.getFileName() + ".partial";
 
         long downloadId = enqueueDownload(mInfo.getDownloadUrl(), fullFilePath);
@@ -229,6 +205,17 @@ public class DownloadService extends IntentService
         sendBroadcast(intent);
     }
 
+    private File getUpdateDirectory() {
+        // If directory doesn't exist, create it
+        File directory = Utils.makeUpdateFolder();
+        if (!directory.exists()) {
+            directory.mkdirs();
+            Log.d(TAG, "UpdateFolder created");
+        }
+
+        return directory;
+    }
+
     @Override
     public void onErrorResponse(VolleyError error) {
         VolleyLog.e("Error: ", error.getMessage());
@@ -242,7 +229,7 @@ public class DownloadService extends IntentService
         if (incrementalUpdateInfo == null) {
             downloadFullZip();
         } else {
-            downloadIncremental(mInfo.getFileName());
+            downloadIncremental(incrementalUpdateInfo);
         }
     }
 }
