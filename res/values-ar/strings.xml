@@ -13,13 +13,10 @@
   <string name="display_name">التحديثات</string>
   <string name="unknown">غير معروف</string>
   <string name="menu_refresh">تحديث</string>
-  <string name="menu_delete">حذف</string>
   <string name="menu_delete_all">حذف التنزيلات</string>
   <string name="menu_system_info">معلومات النظام</string>
   <string name="dialog_ok">موافق</string>
   <string name="dialog_cancel">الغاء</string>
-  <string name="dialog_yes">نعم</string>
-  <string name="dialog_no">لا</string>
   <string name="dialog_update">تحديث</string>
   <string name="dialog_close">أغلق</string>
   <string name="available_updates_title">التحديثات المتوفرة</string>
@@ -27,8 +24,6 @@
   <string name="new_update_summary">جديد</string>
   <string name="downloaded_update_summary">تم التنزيل</string>
   <string name="installed_update_summary">مثبت</string>
-  <string name="backup_rom_title">إنشاء نسخ أحتياطي</string>
-  <string name="backup_rom_summary">النسخ الاحتياطي لي ROM موجودة قبل التحديث</string>
   <string name="update_check_title">التحقق من وجود تحديثات</string>
   <string name="check_manual">يدوي</string>
   <string name="check_on_boot">في كل تشغيل</string>
@@ -37,12 +32,6 @@
   <string name="check_weekly">أسبوعياً</string>
   <string name="check_bi_weekly">مرتين أسبوعيا</string>
   <string name="check_monthly">شهرياً</string>
-  <string name="update_type_title">أنواع التحديث</string>
-  <string name="type_all_incl_nightly">كل الإصدارات</string>
-  <string name="type_new">إنطلاق القناة</string>
-  <string name="type_new_incl_nightly">مطورين القناة</string>
-  <string name="nightly_alert">قمت بتحديد لتضمين تحديثات المطور في هذه القائمة. وهذه غير معتمدة، وينبغي أن تستخدم بحذر.</string>
-  <string name="nightly_alert_title">تنبيه</string>
   <string name="checking_for_updates">التحقق من وجود تحديثات</string>
   <string name="no_updates_found">لا توجد تحديثات جديدة</string>
   <string name="update_check_failed">فشل التحقق من التحديث. الرجاء التحقق من اتصال الإنترنت الخاص بك وحاول مرة أخرى لاحقاً.</string>
@@ -60,12 +49,9 @@
   <string name="not_download_failure">تحميل التحديث فشل</string>
   <string name="not_action_install_update">إعادة تشغيل وتثبيت</string>
   <string name="not_download_install_notice">تم بنجاح تحميل تحديث<xliff:g id="filename">%s</xliff:g> عند لمس \'إعادة التشغيل وتثبيت\'، الجهاز سيتم إعادة تشغيل لتثبيت التحديث. \n\n ملاحضة: ركفري متوافقة مطلوب من أجل التثبيت يعمل بشكل تلقائي.</string>
-  <string name="apply_existing_update_md5error_message">خطأ. عدم تطابق المجموع الاختباري MD5</string>
-  <string name="md5_check_cancelled">تم إلغاء الاختيار MD5</string>
   <string name="md5_verification_failed">فشل التحقق من MD5</string>
   <string name="apply_update_dialog_title">تطبيق التحديث</string>
   <string name="apply_update_dialog_text">أنت على وشك الترقية إلى<xliff:g id="filename">%s</xliff:g>.\n\n لك اضغط على التحديث، الجهاز سيقوم بإعادة تشغيل نفسها في وضع الركفري\n\n ملاحضة: تتطلب هذه الميزة استرداد متوافقة، أو سوف تحتاج إلى التحديثات ليتم تثبيتها يدوياً.</string>
-  <string name="apply_trying_to_get_root_access">في محاولة للحصول على الجذر للوصول إلى إعادة تشغيل في وضع الركفري</string>
   <string name="apply_unable_to_reboot_toast">غير قادر على إعادة التسغيل إلى الركفري</string>
   <string name="confirm_delete_dialog_title">حذف الملف</string>
   <string name="confirm_delete_dialog_message">حذف ملف التحديث المحدد؟</string>
@@ -78,7 +64,6 @@
   <string name="sysinfo_running">يعمل:</string>
   <string name="sysinfo_last_check">الاختيار الأخير:</string>
   <string name="no_changelog_alert">لا تغيير المتاحة</string>
-  <string name="failed_to_load_changelog">غير قادر على تحميل التغيير</string>
   <string name="changelog_dialog_title">سجل التغير</string>
   <string name="loading_changelog">تحميل\u2026</string>
   <string name="extension_label">تحديثات CyanogenMod</string>

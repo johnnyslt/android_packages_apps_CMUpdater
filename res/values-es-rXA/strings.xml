@@ -13,13 +13,10 @@
   <string name="display_name">Anovamientos</string>
   <string name="unknown">Desconocíu</string>
   <string name="menu_refresh">Refrescar</string>
-  <string name="menu_delete">Desaniciar</string>
   <string name="menu_delete_all">Desaniciar descargues</string>
   <string name="menu_system_info">Información del sistema</string>
   <string name="dialog_ok">Aceutar</string>
   <string name="dialog_cancel">Encaboxar</string>
-  <string name="dialog_yes">Sí</string>
-  <string name="dialog_no">Non</string>
   <string name="dialog_update">Anovar</string>
   <string name="dialog_close">Zarrar</string>
   <string name="available_updates_title">Anovamientos disponibles</string>
@@ -27,8 +24,6 @@
   <string name="new_update_summary">Nuevu</string>
   <string name="downloaded_update_summary">Descargáu</string>
   <string name="installed_update_summary">Instaláu</string>
-  <string name="backup_rom_title">Copia de respaldu</string>
-  <string name="backup_rom_summary">Facer copia de respaldu de la ROM actual enantes de facer l\'anovamientu</string>
   <string name="update_check_title">Comprobar anovamientos</string>
   <string name="check_manual">Manualmente</string>
   <string name="check_on_boot">En cada arranque</string>
@@ -37,12 +32,6 @@
   <string name="check_weekly">Selmanalmente</string>
   <string name="check_bi_weekly">Cada dos selmanes</string>
   <string name="check_monthly">Mensualmente</string>
-  <string name="update_type_title">Triba d\'anovamientu</string>
-  <string name="type_all_incl_nightly">Toles versiones</string>
-  <string name="type_new">Canal estable</string>
-  <string name="type_new_incl_nightly">Canal de desendolcu</string>
-  <string name="nightly_alert">Seleicionaste incluyir los anovamientos de desendolcu nesta llista. Estos anovamientos nun tienen sofitu téunicu y han usase con procuru.</string>
-  <string name="nightly_alert_title">Avisu</string>
   <string name="checking_for_updates">Comprobando anovamientos\u2026</string>
   <string name="no_updates_found">Nun hai anovamientos nuevos</string>
   <string name="update_check_failed">Falló la comprobación d\'anovamientos. Por favor, verifica la conexón a Internet y inténtalo de nueves.</string>
@@ -60,12 +49,9 @@
   <string name="not_download_failure">Anovamientu non descargáu</string>
   <string name="not_action_install_update">Reaniciar ya instalar</string>
   <string name="not_download_install_notice">L\'anovamientu <xliff:g id="filename">%s</xliff:g> descargóse correutamente. Calcando sobre \u00ABReaniciar ya instalar\u00BB, el preséu va reaniciase pa instalar l\'anovamientu.\n\nAvisu: Ye necesario disponer d\'un recovery compatible pa una instalación desatendida.</string>
-  <string name="apply_existing_update_md5error_message">Fallu. La verificación MD5 nun concasa</string>
-  <string name="md5_check_cancelled">La verificación MD5 encaboxóse</string>
   <string name="md5_verification_failed">Falló la verificación MD5</string>
   <string name="apply_update_dialog_title">Aplicar anovamientu</string>
   <string name="apply_update_dialog_text">Va aniciase\'l procesu d\'anovar a la versión <xliff:g id="filename">%s</xliff:g>.\n\nCalcando sobre \u00ABAnovar\u00BB, el preséu va reaniciase pa instalar l\'anovamientu.\n\nAvisu: Ye necesario disponer d\'un recovery compatible pa una instalación desatendida.</string>
-  <string name="apply_trying_to_get_root_access">Intentando accesu alministrativu pa reaniciar en mou recovery</string>
   <string name="apply_unable_to_reboot_toast">Imposible reaniciar en mou recovery</string>
   <string name="confirm_delete_dialog_title">Desaniciar ficheru</string>
   <string name="confirm_delete_dialog_message">¿Desaniciar l\'anovamientu descargáu?</string>
@@ -76,9 +62,9 @@
   <string name="delete_updates_success_message">Desaniciáronse tolos anovamientos</string>
   <string name="sysinfo_device">Preséu:</string>
   <string name="sysinfo_running">Executando:</string>
+  <string name="sysinfo_update_channel">Canal d\'anovamientu:</string>
   <string name="sysinfo_last_check">Cabera comprobación:</string>
   <string name="no_changelog_alert">Nun hai rexistru de cambeos</string>
-  <string name="failed_to_load_changelog">Imposible cargar el rexistru de cambeos</string>
   <string name="changelog_dialog_title">Rexistru de cambeos</string>
   <string name="loading_changelog">Cargando\u2026</string>
   <string name="extension_label">Anovamientos de CyanogenMod</string>
